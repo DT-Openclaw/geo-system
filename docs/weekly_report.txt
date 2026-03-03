@@ -1,0 +1,14 @@
+GEO Weekly Report
+========================================
+
+Model: gpt
+- Total prompts: 20
+- Mention rate: 25.0%
+- Citation rate: 20.0%
+- Recommendation rate: 0.0%
+
+Model: claude
+- Total prompts: 20
+- Mention rate: 30.0%
+- Citation rate: 20.0%
+- Recommendation rate: 20.0%

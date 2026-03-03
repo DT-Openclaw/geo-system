@@ -1,0 +1,16 @@
+{
+  "models": {
+    "gpt": {
+      "total": 20,
+      "mention_rate": 0.25,
+      "citation_rate": 0.2,
+      "recommendation_rate": 0.0
+    },
+    "claude": {
+      "total": 20,
+      "mention_rate": 0.3,
+      "citation_rate": 0.2,
+      "recommendation_rate": 0.2
+    }
+  }
+}

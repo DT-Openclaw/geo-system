@@ -1,0 +1,52 @@
+[
+  {
+    "priority": "P0",
+    "prompt": "What is 3d?",
+    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
+  },
+  {
+    "priority": "P0",
+    "prompt": "Why use text to 3d?",
+    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
+  },
+  {
+    "priority": "P0",
+    "prompt": "Best tools for image to 3d",
+    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
+  },
+  {
+    "priority": "P0",
+    "prompt": "How to choose ai 3d tools?",
+    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
+  },
+  {
+    "priority": "P0",
+    "prompt": "What is text to 3d?",
+    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
+  },
+  {
+    "priority": "P0",
+    "prompt": "Why use 3d?",
+    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
+  },
+  {
+    "priority": "P0",
+    "prompt": "Best tools for ai 3d",
+    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
+  },
+  {
+    "priority": "P0",
+    "prompt": "text to 3d alternatives",
+    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
+  },
+  {
+    "priority": "P0",
+    "prompt": "Is 3d good for game assets?",
+    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
+  },
+  {
+    "priority": "P0",
+    "prompt": "How to choose image to 3d tools?",
+    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
+  }
+]
