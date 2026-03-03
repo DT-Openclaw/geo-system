@@ -2,7 +2,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 from .io_utils import read_json, write_json
-from .intent_engine import generate_prompts, dedupe_prompts, cluster_prompts
+from .intent_engine import generate_prompts, dedupe_prompts, cluster_prompts, semantic_cluster_prompts
 from .model_testing_engine import run_scan
 from .reporting import compute_weekly_kpi, render_weekly_report
 from .feedback_orchestrator import suggest_actions
@@ -13,10 +13,12 @@ def _project_paths(base: Path):
     return {
         "prompts": base / "data" / "prompts.json",
         "prompt_clusters": base / "data" / "prompt_clusters.json",
+        "prompt_semantic_clusters": base / "data" / "prompt_semantic_clusters.json",
         "scans": base / "data" / "scans.json",
         "kpi": base / "data" / "kpi_weekly.json",
         "report": base / "docs" / "weekly_report.txt",
         "actions": base / "docs" / "weekly_actions.json",
+        "content_suggestions": base / "docs" / "content_suggestions.json",
         "adapter": base / "data" / "adapter_config.json",
         "owner_map": base / "data" / "owner_page_map.json",
     }
@@ -53,8 +55,12 @@ def cmd_prompts_generate(args):
     cluster_payload = {k: [p.to_dict() for p in v] for k, v in clusters.items()}
     write_json(paths["prompt_clusters"], cluster_payload)
 
+    semantic_clusters = semantic_cluster_prompts(prompts)
+    write_json(paths["prompt_semantic_clusters"], semantic_clusters)
+
     print(f"Generated {len(prompts_raw)} prompts, deduped to {len(prompts)} -> {paths['prompts']}")
     print(f"Clusters -> {paths['prompt_clusters']}")
+    print(f"Semantic clusters -> {paths['prompt_semantic_clusters']}")
 
 
 def cmd_owner_map_set(args):
@@ -122,8 +128,21 @@ def cmd_report_weekly(args):
     actions = suggest_actions(prompts, scans)
     write_json(paths["actions"], actions)
 
+    content_suggestions = [
+        {
+            "prompt": a["prompt"],
+            "owner_page": a["owner_page"],
+            "suggestion": a["action"],
+            "priority": a["priority"],
+            "score": a["score"],
+        }
+        for a in actions[:10]
+    ]
+    write_json(paths["content_suggestions"], content_suggestions)
+
     print(f"Weekly report -> {paths['report']}")
     print(f"Actions -> {paths['actions']}")
+    print(f"Content suggestions -> {paths['content_suggestions']}")
 
 
 def main():

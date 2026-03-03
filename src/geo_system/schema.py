@@ -1,4 +1,4 @@
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict, field
 from typing import List
 
 
@@ -26,10 +26,11 @@ class ScanResult:
     recommended: bool
     position: int
     sentiment: str
-    competitors: List[str]
-    excerpt: str
-    ts: str
+    competitors: List[str] = field(default_factory=list)
+    excerpt: str = ""
+    ts: str = ""
     run_id: str = ""
+    cited_urls: List[str] = field(default_factory=list)
 
     def to_dict(self):
         return asdict(self)

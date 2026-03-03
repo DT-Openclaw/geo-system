@@ -1,6 +1,7 @@
 from __future__ import annotations
 import json
 import random
+import re
 from datetime import datetime, timezone
 from typing import Dict, List
 from urllib import request, error
@@ -16,13 +17,27 @@ def _mk_run_id() -> str:
     return datetime.now(timezone.utc).strftime("run_%Y%m%dT%H%M%SZ")
 
 
+def _extract_urls(text: str) -> List[str]:
+    if not text:
+        return []
+    urls = re.findall(r"https?://[^\s)\]>'\"]+", text)
+    seen = set()
+    out = []
+    for u in urls:
+        if u not in seen:
+            seen.add(u)
+            out.append(u)
+    return out[:20]
+
+
 def _analyze_response(prompt_id: str, model: str, text: str, brand_terms: List[str], run_id: str) -> ScanResult:
     lowered = text.lower()
     mentioned = any(b.lower() in lowered for b in brand_terms)
-    cited = ("http://" in lowered or "https://" in lowered) and mentioned
+    urls = _extract_urls(text)
+    cited = len(urls) > 0 and mentioned
     recommended = mentioned and any(k in lowered for k in ["best", "recommend", "good for", "top"])
     sentiment = "positive" if mentioned else "neutral"
-    excerpt = text[:240].replace("\n", " ")
+    excerpt = text[:280].replace("\n", " ")
     competitors = [c for c in ["meshy", "kaedim", "spline", "luma"] if c in lowered]
 
     return ScanResult(
@@ -38,6 +53,7 @@ def _analyze_response(prompt_id: str, model: str, text: str, brand_terms: List[s
         excerpt=excerpt,
         ts=_now_iso(),
         run_id=run_id,
+        cited_urls=urls,
     )
 
 
@@ -47,7 +63,7 @@ def _call_openai_compatible(base_url: str, api_key: str, model: str, prompt: str
         "model": model,
         "temperature": 0.2,
         "messages": [
-            {"role": "system", "content": "Answer briefly and factually."},
+            {"role": "system", "content": "Answer briefly and factually. Include links when appropriate."},
             {"role": "user", "content": prompt},
         ],
     }
@@ -63,11 +79,10 @@ def _call_openai_compatible(base_url: str, api_key: str, model: str, prompt: str
 
 
 def _call_claude_compatible(base_url: str, api_key: str, model: str, prompt: str) -> str:
-    # Anthropic Messages API compatible
     url = base_url.rstrip("/") + "/messages"
     payload = {
         "model": model,
-        "max_tokens": 800,
+        "max_tokens": 900,
         "temperature": 0.2,
         "messages": [{"role": "user", "content": prompt}],
     }
@@ -92,13 +107,6 @@ def run_scan(
     brand_terms: List[str] | None = None,
     adapter_config: Dict | None = None,
 ) -> List[ScanResult]:
-    """
-    v0.3 behavior:
-    - openai:* => adapter_config.openai
-    - claude:* => adapter_config.claude
-    - gemini:* => adapter_config.gemini (currently fallback simulation unless endpoint given)
-    - any other model => deterministic simulation
-    """
     brand_terms = brand_terms or ["tripo3d", "tripo3d.ai", "tripo 3d"]
     adapter_config = adapter_config or {}
     out: List[ScanResult] = []
@@ -126,9 +134,7 @@ def run_scan(
                     out.append(_analyze_response(p.id, model, text, brand_terms, run_id))
                     continue
 
-                # gemini adapter placeholder (can be wired to specific endpoint if provided)
                 if model.startswith("gemini:") and all(k in gemini_cfg for k in ["base_url", "api_key", "model"]):
-                    # try OpenAI-compatible style first for gateway adapters
                     text = _call_openai_compatible(
                         gemini_cfg["base_url"], gemini_cfg["api_key"], gemini_cfg["model"], p.prompt
                     )
@@ -139,15 +145,16 @@ def run_scan(
             except Exception as e:
                 fallback_text = f"Error: {type(e).__name__}. Fallback simulated response for prompt: {p.prompt}"
 
-            # deterministic fallback simulation
             random.seed(f"{model}:{p.prompt}")
             mentioned = random.random() < 0.35
             cited = mentioned and random.random() < 0.45
             recommended = mentioned and random.random() < 0.50
             if not fallback_text:
                 fallback_text = (
-                    f"{'Tripo3D is often recommended.' if mentioned else 'No direct brand mention.'} Prompt: {p.prompt}"
+                    f"{'Tripo3D is often recommended.' if mentioned else 'No direct brand mention.'} "
+                    f"Prompt: {p.prompt}"
                 )
+            cited_urls = ["https://tripo3d.ai"] if cited else []
 
             out.append(
                 ScanResult(
@@ -160,9 +167,10 @@ def run_scan(
                     position=1 if mentioned else 0,
                     sentiment="positive" if mentioned else "neutral",
                     competitors=["meshy", "kaedim"] if not mentioned else ["meshy"],
-                    excerpt=fallback_text[:240],
+                    excerpt=fallback_text[:280],
                     ts=_now_iso(),
                     run_id=run_id,
+                    cited_urls=cited_urls,
                 )
             )
 

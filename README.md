@@ -54,3 +54,9 @@ geo owner set --bucket comparison --page /tripo3d-vs-meshy
 geo owner set --bucket decision --page /best-ai-3d-tools
 geo owner set --bucket usecase --page /ai-3d-for-game-assets
 ```
+
+## v1.0 highlights
+- Citation URL extraction and top-cited URL reporting
+- Semantic prompt clustering (`prompt_semantic_clusters.json`)
+- Content suggestion output (`docs/content_suggestions.json`)
+- Better scan data model with cited_urls support

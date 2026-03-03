@@ -2,8 +2,14 @@ from __future__ import annotations
 import re
 import uuid
 from collections import defaultdict
-from typing import Dict, List
+from typing import Dict, List, Tuple
 from .schema import Prompt
+
+
+STOPWORDS = {
+    "what", "is", "how", "does", "why", "use", "best", "tools", "for", "which", "ai",
+    "good", "to", "do", "the", "a", "an", "of", "and", "in", "on", "with", "vs",
+}
 
 
 def _normalize(text: str) -> str:
@@ -23,6 +29,18 @@ def _bucket_for_prompt(text: str) -> str:
     if any(k in t for k in ["for ", "use case", "workflow"]):
         return "usecase"
     return "info"
+
+
+def _tokenize(text: str) -> List[str]:
+    parts = re.findall(r"[a-z0-9]+", text.lower())
+    return [p for p in parts if p not in STOPWORDS]
+
+
+def _jaccard(a: List[str], b: List[str]) -> float:
+    sa, sb = set(a), set(b)
+    if not sa or not sb:
+        return 0.0
+    return len(sa & sb) / len(sa | sb)
 
 
 def generate_prompts(seed_terms: List[str], count: int = 100) -> List[Prompt]:
@@ -77,3 +95,19 @@ def cluster_prompts(prompts: List[Prompt]) -> Dict[str, List[Prompt]]:
     for p in prompts:
         clusters[p.bucket].append(p)
     return dict(clusters)
+
+
+def semantic_cluster_prompts(prompts: List[Prompt], threshold: float = 0.5) -> Dict[str, List[str]]:
+    groups: List[Tuple[str, List[str], List[str]]] = []  # (anchor_id, tokens, prompt_ids)
+    for p in prompts:
+        toks = _tokenize(p.prompt)
+        placed = False
+        for idx, (anchor_id, anchor_toks, prompt_ids) in enumerate(groups):
+            if _jaccard(toks, anchor_toks) >= threshold:
+                prompt_ids.append(p.id)
+                placed = True
+                break
+        if not placed:
+            groups.append((p.id, toks, [p.id]))
+
+    return {anchor_id: prompt_ids for anchor_id, _, prompt_ids in groups}

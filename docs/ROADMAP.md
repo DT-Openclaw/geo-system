@@ -18,7 +18,14 @@
 - Action scoring and prioritized weekly actions
 - Append mode for scan history retention
 
-## v0.4 (next)
-- Better provider-specific response parsing
-- Prompt cluster-level trend tracking
-- Page mapping and owner-page recommendations
+## v0.4
+- Bucket-level trend tracking
+- Owner-page mapping CLI
+- Weekly actions include owner_page
+
+## v1.0
+- Citation URL extraction
+- Top cited URLs in reports
+- Semantic prompt clustering
+- Content suggestion output from actions
+- Stronger reporting payloads for dashboards
