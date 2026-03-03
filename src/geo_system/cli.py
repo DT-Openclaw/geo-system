@@ -7,6 +7,7 @@ from .model_testing_engine import run_scan
 from .reporting import compute_weekly_kpi, render_weekly_report
 from .feedback_orchestrator import suggest_actions
 from .schema import Prompt, ScanResult
+from .dashboard import build_dashboard_files
 
 
 def _project_paths(base: Path):
@@ -140,9 +141,12 @@ def cmd_report_weekly(args):
     ]
     write_json(paths["content_suggestions"], content_suggestions)
 
+    dashboard_files = build_dashboard_files(base)
     print(f"Weekly report -> {paths['report']}")
     print(f"Actions -> {paths['actions']}")
     print(f"Content suggestions -> {paths['content_suggestions']}")
+    print(f"Dashboard HTML -> {dashboard_files['html']}")
+    print(f"Dashboard JSON -> {dashboard_files['json']}")
 
 
 def main():

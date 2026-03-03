@@ -29,3 +29,8 @@
 - Semantic prompt clustering
 - Content suggestion output from actions
 - Stronger reporting payloads for dashboards
+
+## Dashboard release
+- Local HTML dashboard
+- Dashboard JSON export
+- KPI/action/content suggestion visualization

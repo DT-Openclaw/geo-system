@@ -1886,5 +1886,834 @@
     "excerpt": "HTTPError: 500. Fallback simulated response for prompt: How to choose image to 3d tools?",
     "ts": "2026-03-03T16:03:41.888228+00:00",
     "run_id": "run_20260303T160000Z"
+  },
+  {
+    "scan_id": "openai:live-940b0b32",
+    "model": "openai:live",
+    "prompt_id": "940b0b32-bd16-420e-9c3d-cf91a840ff2f",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [],
+    "excerpt": "**3D** usually means **three-dimensional**: something that has **width, height, and depth**.  Examples: - A **cube** is 3D. - A **drawing on paper** is usually 2D because it only has width and height. - **3D movies, graphics, and printing** try to represent or create objects with",
+    "ts": "2026-03-03T16:25:11.966547+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://en.wikipedia.org/wiki/Three-dimensional_space",
+      "https://en.wikipedia.org/wiki/3D_computer_graphics"
+    ]
+  },
+  {
+    "scan_id": "openai:live-3628036b",
+    "model": "openai:live",
+    "prompt_id": "3628036b-94be-414c-990e-2477f9031588",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [],
+    "excerpt": "“AI 3D” usually means using machine learning to **create, reconstruct, or understand 3D objects/scenes** from data like text, images, video, depth scans, or point clouds.  ## The basic idea AI learns patterns from lots of 3D-related data, then predicts things like:  - **Shape** o",
+    "ts": "2026-03-03T16:25:28.898736+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://github.com/openai/shap-e",
+      "https://github.com/openai/point-e",
+      "https://www.matthewtancik.com/nerf",
+      "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+    ]
+  },
+  {
+    "scan_id": "openai:live-c4574c20",
+    "model": "openai:live",
+    "prompt_id": "c4574c20-304b-4af9-987f-11c2de46ed47",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [],
+    "excerpt": "Text-to-3D is useful because it makes 3D creation faster and more accessible.  ### Why people use it - **Speed:** Generate a rough 3D model in minutes instead of modeling from scratch. - **Lower skill barrier:** You can create concepts without being an expert in Blender, Maya, or",
+    "ts": "2026-03-03T16:25:36.885679+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "openai:live-9be5217f",
+    "model": "openai:live",
+    "prompt_id": "9be5217f-e29d-4e87-bb4a-869bd540d2a6",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [
+      "meshy",
+      "kaedim"
+    ],
+    "excerpt": "Error: URLError. Fallback simulated response for prompt: Best tools for image to 3d",
+    "ts": "2026-03-03T16:25:41.905916+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "openai:live-8914e78b",
+    "model": "openai:live",
+    "prompt_id": "8914e78b-abab-4d3a-af24-471793a6250c",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [],
+    "excerpt": "If you mean **3D software alternatives**, here are some common options by use case:  ### General 3D modeling / animation - **Blender** — free, open-source, modeling, sculpting, animation, rendering     https://www.blender.org/ - **Cinema 4D** — motion graphics and 3D design     h",
+    "ts": "2026-03-03T16:25:54.837165+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://www.blender.org/",
+      "https://www.maxon.net/en/cinema-4d",
+      "https://www.sidefx.com/",
+      "https://www.autodesk.com/products/maya/",
+      "https://www.freecad.org/",
+      "https://www.autodesk.com/products/fusion-360/",
+      "https://www.onshape.com/",
+      "https://solidedge.siemens.com/",
+      "https://www.maxon.net/en/zbrush",
+      "https://nomadsculpt.com/",
+      "https://www.blender.org/features/rendering/",
+      "https://www.chaos.com/vray",
+      "https://home.otoy.com/render/octane-render/",
+      "https://ultimaker.com/software/ultimaker-cura/",
+      "https://www.prusa3d.com/page/prusaslicer_424/",
+      "https://github.com/SoftFever/OrcaSlicer"
+    ]
+  },
+  {
+    "scan_id": "openai:live-f768a3d3",
+    "model": "openai:live",
+    "prompt_id": "f768a3d3-fbd9-42a2-b978-5131b2248558",
+    "mentioned": true,
+    "cited": true,
+    "recommended": true,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy",
+      "kaedim",
+      "luma"
+    ],
+    "excerpt": "If you mean **AI 3D generation tools**, here’s a quick comparison of the main players:  ## Leading AI 3D tools vs competitors  | Tool | Best for | Strengths | Weaknesses | Link | |---|---|---|---|---| | **Meshy** | Fast text/image-to-3D asset creation | Easy workflow, game asset ",
+    "ts": "2026-03-03T16:26:11.498081+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://www.meshy.ai/",
+      "https://lumalabs.ai/",
+      "https://www.tripo3d.ai/",
+      "https://www.sloyd.ai/",
+      "https://www.scenario.com/",
+      "https://www.kaedim3d.com/",
+      "https://www.masterpiecex.com/"
+    ]
+  },
+  {
+    "scan_id": "openai:live-f644e983",
+    "model": "openai:live",
+    "prompt_id": "f644e983-c0c8-46b4-b958-bf023fe81a64",
+    "mentioned": true,
+    "cited": true,
+    "recommended": true,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy"
+    ],
+    "excerpt": "Text-to-3D is **useful for some game-asset workflows**, but it’s **not usually a full replacement** for traditional modeling yet.  ### Good for - **Concepting / blockouts** - **Background props** - **Rapid prototyping** - **Placeholder assets** - **Generating base meshes** for ar",
+    "ts": "2026-03-03T16:26:20.290210+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://www.meshy.ai/",
+      "https://www.tripo3d.ai/",
+      "https://hyperhuman.deemos.com/rodin",
+      "https://www.blender.org/"
+    ]
+  },
+  {
+    "scan_id": "openai:live-2d413474",
+    "model": "openai:live",
+    "prompt_id": "2d413474-b0bb-4766-8ac7-b2598cfc7cd3",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [],
+    "excerpt": "Yes—**image-to-3D can be good for e-commerce**, but it depends on the product category and how accurate the output is.  ### Where it works well - **Furniture, home decor, shoes, bags, consumer goods**: shoppers benefit from being able to rotate the item and view it in AR. - **Lar",
+    "ts": "2026-03-03T16:26:32.590261+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://www.shopify.com/blog/3d-models-ar-ecommerce",
+      "https://modelviewer.dev/"
+    ]
+  },
+  {
+    "scan_id": "openai:live-4a8e2443",
+    "model": "openai:live",
+    "prompt_id": "4a8e2443-6d74-4e5f-b4c6-580e5652a4d4",
+    "mentioned": true,
+    "cited": true,
+    "recommended": true,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy",
+      "luma"
+    ],
+    "excerpt": "Several AIs can “do 3D,” depending on what you mean:  ### Text/image → 3D models - **OpenAI Shap-E** – generates 3D objects from text/images     https://github.com/openai/shap-e - **Tripo AI** – text/image to 3D asset generation     https://www.tripo3d.ai/ - **Meshy** – AI 3D mod",
+    "ts": "2026-03-03T16:26:45.902399+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://github.com/openai/shap-e",
+      "https://www.tripo3d.ai/",
+      "https://www.meshy.ai/",
+      "https://lumalabs.ai/genie",
+      "https://lumalabs.ai/",
+      "https://poly.cam/",
+      "https://www.realityscan.com/",
+      "https://www.blender.org/",
+      "https://www.nvidia.com/en-us/omniverse/"
+    ]
+  },
+  {
+    "scan_id": "openai:live-a72b4869",
+    "model": "openai:live",
+    "prompt_id": "a72b4869-49a6-4fe4-8812-9215cc0e16d3",
+    "mentioned": true,
+    "cited": true,
+    "recommended": true,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy",
+      "luma"
+    ],
+    "excerpt": "Choose an AI 3D tool by starting with **your use case**, then matching on **output quality, editability, and pipeline fit**.  ## 1) Start with the job you need Different tools are good at different things:  - **Concept models / quick ideation**     Good for fast text-to-3D or ima",
+    "ts": "2026-03-03T16:27:09.148184+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://www.meshy.ai/",
+      "https://www.tripo3d.ai/",
+      "https://lumalabs.ai/",
+      "https://www.realitycapture-training.com/",
+      "https://poly.cam/",
+      "https://www.blender.org/",
+      "https://www.autodesk.com/products/maya/overview",
+      "https://www.adobe.com/products/substance3d.html",
+      "https://www.reallusion.com/character-creator/",
+      "https://readyplayer.me/",
+      "https://www.unrealengine.com/en-US/metahuman"
+    ]
+  },
+  {
+    "scan_id": "openai:live-c33b3437",
+    "model": "openai:live",
+    "prompt_id": "c33b3437-71e8-4b0b-aa4f-29a9370311b3",
+    "mentioned": true,
+    "cited": true,
+    "recommended": true,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy"
+    ],
+    "excerpt": "Error: URLError. Fallback simulated response for prompt: What is text to 3d?",
+    "ts": "2026-03-03T16:27:14.168216+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://tripo3d.ai"
+    ]
+  },
+  {
+    "scan_id": "openai:live-3e129d0f",
+    "model": "openai:live",
+    "prompt_id": "3e129d0f-01af-462a-90a7-8c8648e22289",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [
+      "meshy",
+      "luma"
+    ],
+    "excerpt": "Image-to-3D means estimating a **3D shape** from one or more **2D images**.  ### Main ways it works  #### 1. From many photos: **photogrammetry** If you have lots of images from different angles, software can:  - find matching points across photos - estimate where the camera was ",
+    "ts": "2026-03-03T16:27:33.180535+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://en.wikipedia.org/wiki/Photogrammetry",
+      "https://en.wikipedia.org/wiki/Structure_from_motion",
+      "https://en.wikipedia.org/wiki/Multi-view_stereo",
+      "https://en.wikipedia.org/wiki/Depth_estimation",
+      "https://en.wikipedia.org/wiki/3D_reconstruction",
+      "https://www.matthewtancik.com/nerf",
+      "https://arxiv.org/abs/2003.08934"
+    ]
+  },
+  {
+    "scan_id": "openai:live-3ee1394d",
+    "model": "openai:live",
+    "prompt_id": "3ee1394d-7ed8-49cf-9d2e-8434be8764f8",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [],
+    "excerpt": "Use 3D when depth, shape, or spatial relationships matter more than simplicity.  Common reasons: - Better visualization: shows form, scale, and fit more clearly than 2D. - More realistic communication: useful for products, architecture, medical models, games, and animation. - Sim",
+    "ts": "2026-03-03T16:27:42.544326+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "openai:live-6bf1320e",
+    "model": "openai:live",
+    "prompt_id": "6bf1320e-030b-45db-b32e-eb7242968a89",
+    "mentioned": true,
+    "cited": true,
+    "recommended": true,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy",
+      "kaedim",
+      "luma"
+    ],
+    "excerpt": "If you mean **AI tools for creating 3D models/scenes**, these are some of the strongest options right now:  ### Best AI 3D tools  - **Meshy** — text-to-3D and image-to-3D for game assets; fast and easy for concepts and stylized models.     https://www.meshy.ai/  - **Tripo AI** — ",
+    "ts": "2026-03-03T16:27:55.409180+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://www.meshy.ai/",
+      "https://www.tripo3d.ai/",
+      "https://lumalabs.ai/",
+      "https://www.kaedim3d.com/",
+      "https://www.sloyd.ai/",
+      "https://www.masterpiecex.com/",
+      "https://www.scenario.com/"
+    ]
+  },
+  {
+    "scan_id": "openai:live-339e8ab6",
+    "model": "openai:live",
+    "prompt_id": "339e8ab6-363f-46ea-9fcc-58ff4e41cdcd",
+    "mentioned": true,
+    "cited": true,
+    "recommended": true,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy",
+      "kaedim",
+      "spline",
+      "luma"
+    ],
+    "excerpt": "Here are solid **text-to-3D alternatives**, depending on what you want to generate:  ### General text-to-3D tools - **Meshy** — Generates 3D models from text or images; good for game assets and fast iteration.     https://www.meshy.ai/  - **Tripo AI** — Text/image to 3D with quic",
+    "ts": "2026-03-03T16:28:05.882026+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://www.meshy.ai/",
+      "https://www.tripo3d.ai/",
+      "https://lumalabs.ai/",
+      "https://www.sloyd.ai/",
+      "https://www.kaedim3d.com/",
+      "https://www.masterpiecex.com/",
+      "https://www.scenario.com/",
+      "https://github.com/Tencent-Hunyuan/Hunyuan3D-2",
+      "https://github.com/Stability-AI/stable-fast-3d",
+      "https://github.com/openai/shap-e",
+      "https://poly.cam/",
+      "https://www.realityscan.com/"
+    ]
+  },
+  {
+    "scan_id": "openai:live-c8a45738",
+    "model": "openai:live",
+    "prompt_id": "c8a45738-a36d-4e87-b97c-da8720781add",
+    "mentioned": true,
+    "cited": true,
+    "recommended": true,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy",
+      "kaedim",
+      "luma"
+    ],
+    "excerpt": "If you mean **AI tools that turn a single image (or a few images) into a 3D model**, the landscape is roughly:  | Tool | Best for | Strengths | Weaknesses | Link | |---|---|---|---|---| | **Meshy** | Fast game/creative asset generation | Easy image-to-3D workflow, texture generat",
+    "ts": "2026-03-03T16:28:22.571449+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://www.meshy.ai/",
+      "https://lumalabs.ai/",
+      "https://www.tripo3d.ai/",
+      "https://github.com/VAST-AI-Research/TripoSR",
+      "https://www.kaedim3d.com/",
+      "https://www.csm.ai/",
+      "https://3dfy.ai/",
+      "https://www.adobe.com/products/substance3d-sampler.html",
+      "https://www.capturingreality.com/",
+      "https://poly.cam/"
+    ]
+  },
+  {
+    "scan_id": "openai:live-278750ac",
+    "model": "openai:live",
+    "prompt_id": "278750ac-8580-4b54-9c3e-ead304a87a13",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [],
+    "excerpt": "Yes—3D is very good for game assets in many cases, and it’s the standard for most modern games.  Pros: - Reusable from many camera angles - Easy to animate and rig - Works well for lighting, physics, and VFX - Can be optimized into different LODs for performance  Cons: - Usually ",
+    "ts": "2026-03-03T16:28:29.931790+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "openai:live-b16cdea7",
+    "model": "openai:live",
+    "prompt_id": "b16cdea7-67a2-449b-bdc5-50f3485f3e34",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [],
+    "excerpt": "Yes—AI-generated 3D can be good for e-commerce, especially for products where shape, scale, or fit matter.  ### Best use cases - **Furniture / home decor** - **Shoes, bags, accessories** - **Consumer electronics** - **Jewelry** - **Customizable products**  ### Main benefits - **H",
+    "ts": "2026-03-03T16:28:40.691473+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://www.shopify.com/blog/3d-ar-ecommerce",
+      "https://modelviewer.dev/",
+      "https://developer.apple.com/augmented-reality/quick-look/"
+    ]
+  },
+  {
+    "scan_id": "openai:live-205f6501",
+    "model": "openai:live",
+    "prompt_id": "205f6501-b6ee-41a1-bdf7-1da1bb09a409",
+    "mentioned": true,
+    "cited": true,
+    "recommended": true,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy",
+      "kaedim",
+      "spline",
+      "luma"
+    ],
+    "excerpt": "Several AIs can generate **3D models from text prompts**. Popular options include:  - **Meshy** — text/image to 3D models, good for game assets and quick prototyping.     https://www.meshy.ai/  - **Tripo AI** — fast text-to-3D and image-to-3D generation.     https://www.tripo3d.a",
+    "ts": "2026-03-03T16:28:48.742319+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://www.meshy.ai/",
+      "https://www.tripo3d.ai/",
+      "https://lumalabs.ai/",
+      "https://www.kaedim3d.com/",
+      "https://spline.design/ai",
+      "https://masterpiecex.com/",
+      "https://github.com/openai/shap-e",
+      "https://github.com/openai/point-e",
+      "https://stability.ai/"
+    ]
+  },
+  {
+    "scan_id": "openai:live-8ba0d791",
+    "model": "openai:live",
+    "prompt_id": "8ba0d791-9a1d-4eca-a422-aca62b8aabd7",
+    "mentioned": true,
+    "cited": true,
+    "recommended": true,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy"
+    ],
+    "excerpt": "Choose an image-to-3D tool based on **what you need the 3D model for** first:  ## 1) Start with the use case - **Product visualization / e-commerce**: prioritize clean meshes, accurate proportions, and texture quality. - **Games / AR / VR**: prioritize low-poly export, UVs, riggi",
+    "ts": "2026-03-03T16:29:25.030494+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://www.meshy.ai/",
+      "https://www.tripo3d.ai/",
+      "https://www.capturingreality.com/",
+      "https://poly.cam/",
+      "https://github.com/Stability-AI/stable-fast-3d",
+      "https://github.com/VAST-AI-Research/TripoSR",
+      "https://github.com/TencentARC/InstantMesh"
+    ]
+  },
+  {
+    "scan_id": "gemini:live-940b0b32",
+    "model": "gemini:live",
+    "prompt_id": "940b0b32-bd16-420e-9c3d-cf91a840ff2f",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [
+      "meshy",
+      "kaedim"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: What is 3d?",
+    "ts": "2026-03-03T16:29:30.776415+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "gemini:live-3628036b",
+    "model": "gemini:live",
+    "prompt_id": "3628036b-94be-414c-990e-2477f9031588",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [
+      "meshy",
+      "kaedim"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: How does ai 3d work?",
+    "ts": "2026-03-03T16:29:32.395654+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "gemini:live-c4574c20",
+    "model": "gemini:live",
+    "prompt_id": "c4574c20-304b-4af9-987f-11c2de46ed47",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [
+      "meshy",
+      "kaedim"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: Why use text to 3d?",
+    "ts": "2026-03-03T16:29:33.168631+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "gemini:live-9be5217f",
+    "model": "gemini:live",
+    "prompt_id": "9be5217f-e29d-4e87-bb4a-869bd540d2a6",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [
+      "meshy",
+      "kaedim"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: Best tools for image to 3d",
+    "ts": "2026-03-03T16:29:34.143473+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "gemini:live-8914e78b",
+    "model": "gemini:live",
+    "prompt_id": "8914e78b-abab-4d3a-af24-471793a6250c",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [
+      "meshy",
+      "kaedim"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: 3d alternatives",
+    "ts": "2026-03-03T16:29:36.271138+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "gemini:live-f768a3d3",
+    "model": "gemini:live",
+    "prompt_id": "f768a3d3-fbd9-42a2-b978-5131b2248558",
+    "mentioned": true,
+    "cited": false,
+    "recommended": true,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: ai 3d vs competitors",
+    "ts": "2026-03-03T16:29:37.058085+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "gemini:live-f644e983",
+    "model": "gemini:live",
+    "prompt_id": "f644e983-c0c8-46b4-b958-bf023fe81a64",
+    "mentioned": true,
+    "cited": false,
+    "recommended": false,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: Is text to 3d good for game assets?",
+    "ts": "2026-03-03T16:29:38.034580+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "gemini:live-2d413474",
+    "model": "gemini:live",
+    "prompt_id": "2d413474-b0bb-4766-8ac7-b2598cfc7cd3",
+    "mentioned": true,
+    "cited": true,
+    "recommended": true,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: Is image to 3d good for e-commerce?",
+    "ts": "2026-03-03T16:29:38.830937+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://tripo3d.ai"
+    ]
+  },
+  {
+    "scan_id": "gemini:live-4a8e2443",
+    "model": "gemini:live",
+    "prompt_id": "4a8e2443-6d74-4e5f-b4c6-580e5652a4d4",
+    "mentioned": true,
+    "cited": true,
+    "recommended": false,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: Which AI can do 3d?",
+    "ts": "2026-03-03T16:29:39.774565+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://tripo3d.ai"
+    ]
+  },
+  {
+    "scan_id": "gemini:live-a72b4869",
+    "model": "gemini:live",
+    "prompt_id": "a72b4869-49a6-4fe4-8812-9215cc0e16d3",
+    "mentioned": true,
+    "cited": true,
+    "recommended": false,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: How to choose ai 3d tools?",
+    "ts": "2026-03-03T16:29:40.805671+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://tripo3d.ai"
+    ]
+  },
+  {
+    "scan_id": "gemini:live-c33b3437",
+    "model": "gemini:live",
+    "prompt_id": "c33b3437-71e8-4b0b-aa4f-29a9370311b3",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [
+      "meshy",
+      "kaedim"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: What is text to 3d?",
+    "ts": "2026-03-03T16:29:41.720913+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "gemini:live-3e129d0f",
+    "model": "gemini:live",
+    "prompt_id": "3e129d0f-01af-462a-90a7-8c8648e22289",
+    "mentioned": true,
+    "cited": true,
+    "recommended": false,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: How does image to 3d work?",
+    "ts": "2026-03-03T16:29:42.771192+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://tripo3d.ai"
+    ]
+  },
+  {
+    "scan_id": "gemini:live-3ee1394d",
+    "model": "gemini:live",
+    "prompt_id": "3ee1394d-7ed8-49cf-9d2e-8434be8764f8",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [
+      "meshy",
+      "kaedim"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: Why use 3d?",
+    "ts": "2026-03-03T16:29:43.767331+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "gemini:live-6bf1320e",
+    "model": "gemini:live",
+    "prompt_id": "6bf1320e-030b-45db-b32e-eb7242968a89",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [
+      "meshy",
+      "kaedim"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: Best tools for ai 3d",
+    "ts": "2026-03-03T16:29:44.792923+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "gemini:live-339e8ab6",
+    "model": "gemini:live",
+    "prompt_id": "339e8ab6-363f-46ea-9fcc-58ff4e41cdcd",
+    "mentioned": true,
+    "cited": true,
+    "recommended": true,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: text to 3d alternatives",
+    "ts": "2026-03-03T16:29:45.543552+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": [
+      "https://tripo3d.ai"
+    ]
+  },
+  {
+    "scan_id": "gemini:live-c8a45738",
+    "model": "gemini:live",
+    "prompt_id": "c8a45738-a36d-4e87-b97c-da8720781add",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [
+      "meshy",
+      "kaedim"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: image to 3d vs competitors",
+    "ts": "2026-03-03T16:29:46.504474+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "gemini:live-278750ac",
+    "model": "gemini:live",
+    "prompt_id": "278750ac-8580-4b54-9c3e-ead304a87a13",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [
+      "meshy",
+      "kaedim"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: Is 3d good for game assets?",
+    "ts": "2026-03-03T16:29:47.564922+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "gemini:live-b16cdea7",
+    "model": "gemini:live",
+    "prompt_id": "b16cdea7-67a2-449b-bdc5-50f3485f3e34",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [
+      "meshy",
+      "kaedim"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: Is ai 3d good for e-commerce?",
+    "ts": "2026-03-03T16:29:48.581600+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "gemini:live-205f6501",
+    "model": "gemini:live",
+    "prompt_id": "205f6501-b6ee-41a1-bdf7-1da1bb09a409",
+    "mentioned": true,
+    "cited": false,
+    "recommended": false,
+    "position": 1,
+    "sentiment": "positive",
+    "competitors": [
+      "meshy"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: Which AI can do text to 3d?",
+    "ts": "2026-03-03T16:29:49.605711+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
+  },
+  {
+    "scan_id": "gemini:live-8ba0d791",
+    "model": "gemini:live",
+    "prompt_id": "8ba0d791-9a1d-4eca-a422-aca62b8aabd7",
+    "mentioned": false,
+    "cited": false,
+    "recommended": false,
+    "position": 0,
+    "sentiment": "neutral",
+    "competitors": [
+      "meshy",
+      "kaedim"
+    ],
+    "excerpt": "HTTPError: 500. Fallback simulated response for prompt: How to choose image to 3d tools?",
+    "ts": "2026-03-03T16:29:50.424736+00:00",
+    "run_id": "run_20260303T162508Z",
+    "cited_urls": []
   }
 ]

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GEO Dashboard</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin: 0; background: #0b1020; color: #eef2ff; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { background: #131a2e; border: 1px solid #26304f; border-radius: 12px; padding: 16px; }
+    h1,h2,h3 { margin: 0 0 12px 0; }
+    .muted { color: #9fb0d0; font-size: 14px; }
+    .stat { font-size: 28px; font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 10px 8px; border-bottom: 1px solid #243150; text-align: left; vertical-align: top; }
+    th { color: #9fb0d0; font-weight: 600; }
+    .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; background: #1d2a47; color: #c9d6ff; font-size: 12px; }
+    .good { color: #7ee787; } .warn { color: #f2cc60; } .bad { color: #ff7b72; }
+    .two { display:grid; grid-template-columns: 1.2fr 1fr; gap: 16px; }
+    pre { white-space: pre-wrap; word-wrap: break-word; }
+    a { color: #8ab4ff; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>GEO Dashboard</h1>
+    <div class="muted" id="project"></div>
+
+    <div class="grid" id="summary"></div>
+
+    <div class="two" style="margin-top:16px;">
+      <div class="card">
+        <h2>Model KPI</h2>
+        <div id="models"></div>
+      </div>
+      <div class="card">
+        <h2>Owner Page Map</h2>
+        <div id="ownerMap"></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h2>Prioritized Weekly Actions</h2>
+      <div id="actions"></div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h2>Content Suggestions</h2>
+      <div id="suggestions"></div>
+    </div>
+  </div>
+
+<script>
+const DATA = {"project": {"project": "tripo3d", "domain": "tripo3d.ai", "brand": "tripo3d"}, "kpi": {"models": {"openai:live": {"total": 80, "mention_rate": 0.15, "citation_rate": 0.1375, "recommendation_rate": 0.15}, "claude": {"total": 20, "mention_rate": 0.35, "citation_rate": 0.1, "recommendation_rate": 0.15}, "gemini:live": {"total": 60, "mention_rate": 0.4, "citation_rate": 0.25, "recommendation_rate": 0.15}}, "by_bucket": {"openai:live": {"unknown": {"total": 60, "mention_rate": 0.0333, "citation_rate": 0.0167, "recommendation_rate": 0.0333}, "info": {"total": 8, "mention_rate": 0.375, "citation_rate": 0.375, "recommendation_rate": 0.375}, "decision": {"total": 4, "mention_rate": 0.75, "citation_rate": 0.75, "recommendation_rate": 0.75}, "comparison": {"total": 4, "mention_rate": 0.75, "citation_rate": 0.75, "recommendation_rate": 0.75}, "usecase": {"total": 4, "mention_rate": 0.25, "citation_rate": 0.25, "recommendation_rate": 0.25}}, "claude": {"unknown": {"total": 20, "mention_rate": 0.35, "citation_rate": 0.1, "recommendation_rate": 0.15}}, "gemini:live": {"unknown": {"total": 40, "mention_rate": 0.4, "citation_rate": 0.25, "recommendation_rate": 0.15}, "info": {"total": 8, "mention_rate": 0.25, "citation_rate": 0.25, "recommendation_rate": 0.0}, "decision": {"total": 4, "mention_rate": 0.5, "citation_rate": 0.25, "recommendation_rate": 0.0}, "comparison": {"total": 4, "mention_rate": 0.5, "citation_rate": 0.25, "recommendation_rate": 0.5}, "usecase": {"total": 4, "mention_rate": 0.5, "citation_rate": 0.25, "recommendation_rate": 0.25}}}, "trends": {"openai:live": {"prev_run_id": "run_20260303T160000Z", "cur_run_id": "run_20260303T162508Z", "mention_rate_prev": 0.0, "mention_rate_cur": 0.5, "mention_delta": 0.5, "citation_rate_prev": 0.0, "citation_rate_cur": 0.5, "citation_delta": 0.5, "recommendation_rate_prev": 0.0, "recommendation_rate_cur": 0.5, "recommendation_delta": 0.5}, "gemini:live": {"prev_run_id": "run_20260303T160000Z", "cur_run_id": "run_20260303T162508Z", "mention_rate_prev": 0.4, "mention_rate_cur": 0.4, "mention_delta": 0.0, "citation_rate_prev": 0.25, "citation_rate_cur": 0.25, "citation_delta": 0.0, "recommendation_rate_prev": 0.15, "recommendation_rate_cur": 0.15, "recommendation_delta": 0.0}}, "bucket_trends": {"openai:live": {"unknown": {"prev_run_id": "run_20260303T155039Z", "cur_run_id": "run_20260303T160000Z", "mention_prev": 0.0, "mention_cur": 0.0, "mention_delta": 0.0}}, "claude": {}, "gemini:live": {"unknown": {"prev_run_id": "run_20260303T155039Z", "cur_run_id": "run_20260303T160000Z", "mention_prev": 0.4, "mention_cur": 0.4, "mention_delta": 0.0}}}, "top_citations": {"openai:live": [["https://www.meshy.ai/", 9], ["https://www.tripo3d.ai/", 9], ["https://lumalabs.ai/", 7], ["https://www.kaedim3d.com/", 5], ["https://poly.cam/", 5], ["https://github.com/openai/shap-e", 4], ["https://www.blender.org/", 4], ["https://www.sloyd.ai/", 3], ["https://www.scenario.com/", 3], ["https://www.masterpiecex.com/", 3]], "gemini:live": [["https://tripo3d.ai", 5]]}}, "actions": [{"priority": "P0", "score": 100, "prompt": "3d alternatives", "bucket": "comparison", "owner_page": "/tripo3d-vs-meshy", "mention_rate": 0.0, "citation_rate": 0.0, "recommendation_rate": 0.0, "reason": "Zero mentions across runs", "action": "Create dedicated answer page (definition + FAQ + evidence block)."}, {"priority": "P0", "score": 100, "prompt": "Best tools for image to 3d", "bucket": "decision", "owner_page": "/best-ai-3d-tools", "mention_rate": 0.0, "citation_rate": 0.0, "recommendation_rate": 0.0, "reason": "Zero mentions across runs", "action": "Create dedicated answer page (definition + FAQ + evidence block)."}, {"priority": "P0", "score": 100, "prompt": "How does ai 3d work?", "bucket": "info", "owner_page": "/what-is-tripo3d", "mention_rate": 0.0, "citation_rate": 0.0, "recommendation_rate": 0.0, "reason": "Zero mentions across runs", "action": "Create dedicated answer page (definition + FAQ + evidence block)."}, {"priority": "P0", "score": 100, "prompt": "Is 3d good for game assets?", "bucket": "usecase", "owner_page": "/ai-3d-for-game-assets", "mention_rate": 0.0, "citation_rate": 0.0, "recommendation_rate": 0.0, "reason": "Zero mentions across runs", "action": "Create dedicated answer page (definition + FAQ + evidence block)."}, {"priority": "P0", "score": 100, "prompt": "Is ai 3d good for e-commerce?", "bucket": "usecase", "owner_page": "/ai-3d-for-game-assets", "mention_rate": 0.0, "citation_rate": 0.0, "recommendation_rate": 0.0, "reason": "Zero mentions across runs", "action": "Create dedicated answer page (definition + FAQ + evidence block)."}, {"priority": "P0", "score": 100, "prompt": "What is 3d?", "bucket": "info", "owner_page": "/what-is-tripo3d", "mention_rate": 0.0, "citation_rate": 0.0, "recommendation_rate": 0.0, "reason": "Zero mentions across runs", "action": "Create dedicated answer page (definition + FAQ + evidence block)."}, {"priority": "P0", "score": 100, "prompt": "Why use 3d?", "bucket": "info", "owner_page": "/what-is-tripo3d", "mention_rate": 0.0, "citation_rate": 0.0, "recommendation_rate": 0.0, "reason": "Zero mentions across runs", "action": "Create dedicated answer page (definition + FAQ + evidence block)."}, {"priority": "P0", "score": 100, "prompt": "Why use text to 3d?", "bucket": "info", "owner_page": "/what-is-tripo3d", "mention_rate": 0.0, "citation_rate": 0.0, "recommendation_rate": 0.0, "reason": "Zero mentions across runs", "action": "Create dedicated answer page (definition + FAQ + evidence block)."}, {"priority": "P1", "score": 70, "prompt": "How does image to 3d work?", "bucket": "info", "owner_page": "/what-is-tripo3d", "mention_rate": 0.5, "citation_rate": 0.5, "recommendation_rate": 0.0, "reason": "Mentioned but not recommended", "action": "Add 'best for' / 'who it is for' / alternative comparison blocks."}, {"priority": "P2", "score": 50, "prompt": "Best tools for ai 3d", "bucket": "decision", "owner_page": "/best-ai-3d-tools", "mention_rate": 0.5, "citation_rate": 0.5, "recommendation_rate": 0.5, "reason": "Needs incremental authority improvements", "action": "Refresh facts, benchmark blocks, and last-updated signals."}, {"priority": "P2", "score": 50, "prompt": "How to choose ai 3d tools?", "bucket": "info", "owner_page": "/what-is-tripo3d", "mention_rate": 1.0, "citation_rate": 1.0, "recommendation_rate": 0.5, "reason": "Needs incremental authority improvements", "action": "Refresh facts, benchmark blocks, and last-updated signals."}, {"priority": "P2", "score": 50, "prompt": "How to choose image to 3d tools?", "bucket": "info", "owner_page": "/what-is-tripo3d", "mention_rate": 0.5, "citation_rate": 0.5, "recommendation_rate": 0.5, "reason": "Needs incremental authority improvements", "action": "Refresh facts, benchmark blocks, and last-updated signals."}, {"priority": "P2", "score": 50, "prompt": "Is image to 3d good for e-commerce?", "bucket": "usecase", "owner_page": "/ai-3d-for-game-assets", "mention_rate": 0.5, "citation_rate": 0.5, "recommendation_rate": 0.5, "reason": "Needs incremental authority improvements", "action": "Refresh facts, benchmark blocks, and last-updated signals."}, {"priority": "P2", "score": 50, "prompt": "Is text to 3d good for game assets?", "bucket": "usecase", "owner_page": "/ai-3d-for-game-assets", "mention_rate": 1.0, "citation_rate": 0.5, "recommendation_rate": 0.5, "reason": "Needs incremental authority improvements", "action": "Refresh facts, benchmark blocks, and last-updated signals."}, {"priority": "P2", "score": 50, "prompt": "What is text to 3d?", "bucket": "info", "owner_page": "/what-is-tripo3d", "mention_rate": 0.5, "citation_rate": 0.5, "recommendation_rate": 0.5, "reason": "Needs incremental authority improvements", "action": "Refresh facts, benchmark blocks, and last-updated signals."}, {"priority": "P2", "score": 50, "prompt": "Which AI can do 3d?", "bucket": "decision", "owner_page": "/best-ai-3d-tools", "mention_rate": 1.0, "citation_rate": 1.0, "recommendation_rate": 0.5, "reason": "Needs incremental authority improvements", "action": "Refresh facts, benchmark blocks, and last-updated signals."}, {"priority": "P2", "score": 50, "prompt": "Which AI can do text to 3d?", "bucket": "decision", "owner_page": "/best-ai-3d-tools", "mention_rate": 1.0, "citation_rate": 0.5, "recommendation_rate": 0.5, "reason": "Needs incremental authority improvements", "action": "Refresh facts, benchmark blocks, and last-updated signals."}, {"priority": "P2", "score": 50, "prompt": "ai 3d vs competitors", "bucket": "comparison", "owner_page": "/tripo3d-vs-meshy", "mention_rate": 1.0, "citation_rate": 0.5, "recommendation_rate": 1.0, "reason": "Needs incremental authority improvements", "action": "Refresh facts, benchmark blocks, and last-updated signals."}, {"priority": "P2", "score": 50, "prompt": "image to 3d vs competitors", "bucket": "comparison", "owner_page": "/tripo3d-vs-meshy", "mention_rate": 0.5, "citation_rate": 0.5, "recommendation_rate": 0.5, "reason": "Needs incremental authority improvements", "action": "Refresh facts, benchmark blocks, and last-updated signals."}, {"priority": "P2", "score": 50, "prompt": "text to 3d alternatives", "bucket": "comparison", "owner_page": "/tripo3d-vs-meshy", "mention_rate": 1.0, "citation_rate": 1.0, "recommendation_rate": 1.0, "reason": "Needs incremental authority improvements", "action": "Refresh facts, benchmark blocks, and last-updated signals."}], "content_suggestions": [{"prompt": "3d alternatives", "owner_page": "/tripo3d-vs-meshy", "suggestion": "Create dedicated answer page (definition + FAQ + evidence block).", "priority": "P0", "score": 100}, {"prompt": "Best tools for image to 3d", "owner_page": "/best-ai-3d-tools", "suggestion": "Create dedicated answer page (definition + FAQ + evidence block).", "priority": "P0", "score": 100}, {"prompt": "How does ai 3d work?", "owner_page": "/what-is-tripo3d", "suggestion": "Create dedicated answer page (definition + FAQ + evidence block).", "priority": "P0", "score": 100}, {"prompt": "Is 3d good for game assets?", "owner_page": "/ai-3d-for-game-assets", "suggestion": "Create dedicated answer page (definition + FAQ + evidence block).", "priority": "P0", "score": 100}, {"prompt": "Is ai 3d good for e-commerce?", "owner_page": "/ai-3d-for-game-assets", "suggestion": "Create dedicated answer page (definition + FAQ + evidence block).", "priority": "P0", "score": 100}, {"prompt": "What is 3d?", "owner_page": "/what-is-tripo3d", "suggestion": "Create dedicated answer page (definition + FAQ + evidence block).", "priority": "P0", "score": 100}, {"prompt": "Why use 3d?", "owner_page": "/what-is-tripo3d", "suggestion": "Create dedicated answer page (definition + FAQ + evidence block).", "priority": "P0", "score": 100}, {"prompt": "Why use text to 3d?", "owner_page": "/what-is-tripo3d", "suggestion": "Create dedicated answer page (definition + FAQ + evidence block).", "priority": "P0", "score": 100}, {"prompt": "How does image to 3d work?", "owner_page": "/what-is-tripo3d", "suggestion": "Add 'best for' / 'who it is for' / alternative comparison blocks.", "priority": "P1", "score": 70}, {"prompt": "Best tools for ai 3d", "owner_page": "/best-ai-3d-tools", "suggestion": "Refresh facts, benchmark blocks, and last-updated signals.", "priority": "P2", "score": 50}], "owner_page_map": {"info": "/what-is-tripo3d", "comparison": "/tripo3d-vs-meshy", "decision": "/best-ai-3d-tools", "usecase": "/ai-3d-for-game-assets"}};
+
+function pct(n) { return ((n || 0) * 100).toFixed(1) + '%'; }
+function esc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+const project = DATA.project || {};
+document.getElementById('project').innerHTML = `${esc(project.project || 'unknown')} · domain: ${esc(project.domain || '-')} · brand: ${esc(project.brand || '-')}`;
+
+const models = DATA.kpi?.models || {};
+const summary = document.getElementById('summary');
+Object.entries(models).forEach(([model, row]) => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <h3>${esc(model)}</h3>
+    <div class="muted">total prompts</div>
+    <div class="stat">${row.total ?? 0}</div>
+    <div class="muted">mention ${pct(row.mention_rate)} · citation ${pct(row.citation_rate)} · recommendation ${pct(row.recommendation_rate)}</div>
+  `;
+  summary.appendChild(card);
+});
+
+const modelsDiv = document.getElementById('models');
+let modelHtml = '<table><thead><tr><th>Model</th><th>Mention</th><th>Citation</th><th>Recommendation</th></tr></thead><tbody>';
+for (const [model, row] of Object.entries(models)) {
+  modelHtml += `<tr><td>${esc(model)}</td><td>${pct(row.mention_rate)}</td><td>${pct(row.citation_rate)}</td><td>${pct(row.recommendation_rate)}</td></tr>`;
+}
+modelHtml += '</tbody></table>';
+modelsDiv.innerHTML = modelHtml;
+
+const ownerMap = document.getElementById('ownerMap');
+const om = DATA.owner_page_map || {};
+ownerMap.innerHTML = '<table><thead><tr><th>Bucket</th><th>Owner Page</th></tr></thead><tbody>' +
+  Object.entries(om).map(([k,v]) => `<tr><td><span class="pill">${esc(k)}</span></td><td>${esc(v)}</td></tr>`).join('') + '</tbody></table>';
+
+const actions = document.getElementById('actions');
+const rows = (DATA.actions || []).slice(0, 12);
+actions.innerHTML = '<table><thead><tr><th>Priority</th><th>Score</th><th>Prompt</th><th>Owner Page</th><th>Action</th></tr></thead><tbody>' +
+  rows.map(r => `<tr><td>${esc(r.priority)}</td><td>${esc(r.score)}</td><td>${esc(r.prompt)}</td><td>${esc(r.owner_page)}</td><td>${esc(r.action)}</td></tr>`).join('') + '</tbody></table>';
+
+const sugg = document.getElementById('suggestions');
+const srows = (DATA.content_suggestions || []).slice(0, 12);
+sugg.innerHTML = '<table><thead><tr><th>Priority</th><th>Score</th><th>Prompt</th><th>Owner Page</th><th>Suggestion</th></tr></thead><tbody>' +
+  srows.map(r => `<tr><td>${esc(r.priority)}</td><td>${esc(r.score)}</td><td>${esc(r.prompt)}</td><td>${esc(r.owner_page)}</td><td>${esc(r.suggestion)}</td></tr>`).join('') + '</tbody></table>';
+</script>
+</body>
+</html>

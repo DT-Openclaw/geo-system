@@ -1,67 +1,242 @@
 [
   {
     "priority": "P0",
-    "prompt": "What is 3d?",
+    "score": 100,
+    "prompt": "3d alternatives",
+    "bucket": "comparison",
+    "owner_page": "/tripo3d-vs-meshy",
+    "mention_rate": 0.0,
+    "citation_rate": 0.0,
+    "recommendation_rate": 0.0,
+    "reason": "Zero mentions across runs",
     "action": "Create dedicated answer page (definition + FAQ + evidence block)."
   },
   {
     "priority": "P0",
-    "prompt": "How does ai 3d work?",
-    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
-  },
-  {
-    "priority": "P0",
-    "prompt": "Why use text to 3d?",
-    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
-  },
-  {
-    "priority": "P0",
+    "score": 100,
     "prompt": "Best tools for image to 3d",
+    "bucket": "decision",
+    "owner_page": "/best-ai-3d-tools",
+    "mention_rate": 0.0,
+    "citation_rate": 0.0,
+    "recommendation_rate": 0.0,
+    "reason": "Zero mentions across runs",
     "action": "Create dedicated answer page (definition + FAQ + evidence block)."
   },
   {
     "priority": "P0",
-    "prompt": "Is text to 3d good for game assets?",
+    "score": 100,
+    "prompt": "How does ai 3d work?",
+    "bucket": "info",
+    "owner_page": "/what-is-tripo3d",
+    "mention_rate": 0.0,
+    "citation_rate": 0.0,
+    "recommendation_rate": 0.0,
+    "reason": "Zero mentions across runs",
     "action": "Create dedicated answer page (definition + FAQ + evidence block)."
   },
   {
     "priority": "P0",
-    "prompt": "Is image to 3d good for e-commerce?",
+    "score": 100,
+    "prompt": "Is 3d good for game assets?",
+    "bucket": "usecase",
+    "owner_page": "/ai-3d-for-game-assets",
+    "mention_rate": 0.0,
+    "citation_rate": 0.0,
+    "recommendation_rate": 0.0,
+    "reason": "Zero mentions across runs",
     "action": "Create dedicated answer page (definition + FAQ + evidence block)."
   },
   {
     "priority": "P0",
-    "prompt": "How to choose ai 3d tools?",
-    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
-  },
-  {
-    "priority": "P0",
-    "prompt": "How does image to 3d work?",
-    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
-  },
-  {
-    "priority": "P0",
-    "prompt": "Why use 3d?",
-    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
-  },
-  {
-    "priority": "P0",
-    "prompt": "Best tools for ai 3d",
-    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
-  },
-  {
-    "priority": "P0",
-    "prompt": "image to 3d vs competitors",
-    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
-  },
-  {
-    "priority": "P0",
+    "score": 100,
     "prompt": "Is ai 3d good for e-commerce?",
+    "bucket": "usecase",
+    "owner_page": "/ai-3d-for-game-assets",
+    "mention_rate": 0.0,
+    "citation_rate": 0.0,
+    "recommendation_rate": 0.0,
+    "reason": "Zero mentions across runs",
     "action": "Create dedicated answer page (definition + FAQ + evidence block)."
   },
   {
     "priority": "P0",
-    "prompt": "How to choose image to 3d tools?",
+    "score": 100,
+    "prompt": "What is 3d?",
+    "bucket": "info",
+    "owner_page": "/what-is-tripo3d",
+    "mention_rate": 0.0,
+    "citation_rate": 0.0,
+    "recommendation_rate": 0.0,
+    "reason": "Zero mentions across runs",
     "action": "Create dedicated answer page (definition + FAQ + evidence block)."
+  },
+  {
+    "priority": "P0",
+    "score": 100,
+    "prompt": "Why use 3d?",
+    "bucket": "info",
+    "owner_page": "/what-is-tripo3d",
+    "mention_rate": 0.0,
+    "citation_rate": 0.0,
+    "recommendation_rate": 0.0,
+    "reason": "Zero mentions across runs",
+    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
+  },
+  {
+    "priority": "P0",
+    "score": 100,
+    "prompt": "Why use text to 3d?",
+    "bucket": "info",
+    "owner_page": "/what-is-tripo3d",
+    "mention_rate": 0.0,
+    "citation_rate": 0.0,
+    "recommendation_rate": 0.0,
+    "reason": "Zero mentions across runs",
+    "action": "Create dedicated answer page (definition + FAQ + evidence block)."
+  },
+  {
+    "priority": "P1",
+    "score": 70,
+    "prompt": "How does image to 3d work?",
+    "bucket": "info",
+    "owner_page": "/what-is-tripo3d",
+    "mention_rate": 0.5,
+    "citation_rate": 0.5,
+    "recommendation_rate": 0.0,
+    "reason": "Mentioned but not recommended",
+    "action": "Add 'best for' / 'who it is for' / alternative comparison blocks."
+  },
+  {
+    "priority": "P2",
+    "score": 50,
+    "prompt": "Best tools for ai 3d",
+    "bucket": "decision",
+    "owner_page": "/best-ai-3d-tools",
+    "mention_rate": 0.5,
+    "citation_rate": 0.5,
+    "recommendation_rate": 0.5,
+    "reason": "Needs incremental authority improvements",
+    "action": "Refresh facts, benchmark blocks, and last-updated signals."
+  },
+  {
+    "priority": "P2",
+    "score": 50,
+    "prompt": "How to choose ai 3d tools?",
+    "bucket": "info",
+    "owner_page": "/what-is-tripo3d",
+    "mention_rate": 1.0,
+    "citation_rate": 1.0,
+    "recommendation_rate": 0.5,
+    "reason": "Needs incremental authority improvements",
+    "action": "Refresh facts, benchmark blocks, and last-updated signals."
+  },
+  {
+    "priority": "P2",
+    "score": 50,
+    "prompt": "How to choose image to 3d tools?",
+    "bucket": "info",
+    "owner_page": "/what-is-tripo3d",
+    "mention_rate": 0.5,
+    "citation_rate": 0.5,
+    "recommendation_rate": 0.5,
+    "reason": "Needs incremental authority improvements",
+    "action": "Refresh facts, benchmark blocks, and last-updated signals."
+  },
+  {
+    "priority": "P2",
+    "score": 50,
+    "prompt": "Is image to 3d good for e-commerce?",
+    "bucket": "usecase",
+    "owner_page": "/ai-3d-for-game-assets",
+    "mention_rate": 0.5,
+    "citation_rate": 0.5,
+    "recommendation_rate": 0.5,
+    "reason": "Needs incremental authority improvements",
+    "action": "Refresh facts, benchmark blocks, and last-updated signals."
+  },
+  {
+    "priority": "P2",
+    "score": 50,
+    "prompt": "Is text to 3d good for game assets?",
+    "bucket": "usecase",
+    "owner_page": "/ai-3d-for-game-assets",
+    "mention_rate": 1.0,
+    "citation_rate": 0.5,
+    "recommendation_rate": 0.5,
+    "reason": "Needs incremental authority improvements",
+    "action": "Refresh facts, benchmark blocks, and last-updated signals."
+  },
+  {
+    "priority": "P2",
+    "score": 50,
+    "prompt": "What is text to 3d?",
+    "bucket": "info",
+    "owner_page": "/what-is-tripo3d",
+    "mention_rate": 0.5,
+    "citation_rate": 0.5,
+    "recommendation_rate": 0.5,
+    "reason": "Needs incremental authority improvements",
+    "action": "Refresh facts, benchmark blocks, and last-updated signals."
+  },
+  {
+    "priority": "P2",
+    "score": 50,
+    "prompt": "Which AI can do 3d?",
+    "bucket": "decision",
+    "owner_page": "/best-ai-3d-tools",
+    "mention_rate": 1.0,
+    "citation_rate": 1.0,
+    "recommendation_rate": 0.5,
+    "reason": "Needs incremental authority improvements",
+    "action": "Refresh facts, benchmark blocks, and last-updated signals."
+  },
+  {
+    "priority": "P2",
+    "score": 50,
+    "prompt": "Which AI can do text to 3d?",
+    "bucket": "decision",
+    "owner_page": "/best-ai-3d-tools",
+    "mention_rate": 1.0,
+    "citation_rate": 0.5,
+    "recommendation_rate": 0.5,
+    "reason": "Needs incremental authority improvements",
+    "action": "Refresh facts, benchmark blocks, and last-updated signals."
+  },
+  {
+    "priority": "P2",
+    "score": 50,
+    "prompt": "ai 3d vs competitors",
+    "bucket": "comparison",
+    "owner_page": "/tripo3d-vs-meshy",
+    "mention_rate": 1.0,
+    "citation_rate": 0.5,
+    "recommendation_rate": 1.0,
+    "reason": "Needs incremental authority improvements",
+    "action": "Refresh facts, benchmark blocks, and last-updated signals."
+  },
+  {
+    "priority": "P2",
+    "score": 50,
+    "prompt": "image to 3d vs competitors",
+    "bucket": "comparison",
+    "owner_page": "/tripo3d-vs-meshy",
+    "mention_rate": 0.5,
+    "citation_rate": 0.5,
+    "recommendation_rate": 0.5,
+    "reason": "Needs incremental authority improvements",
+    "action": "Refresh facts, benchmark blocks, and last-updated signals."
+  },
+  {
+    "priority": "P2",
+    "score": 50,
+    "prompt": "text to 3d alternatives",
+    "bucket": "comparison",
+    "owner_page": "/tripo3d-vs-meshy",
+    "mention_rate": 1.0,
+    "citation_rate": 1.0,
+    "recommendation_rate": 1.0,
+    "reason": "Needs incremental authority improvements",
+    "action": "Refresh facts, benchmark blocks, and last-updated signals."
   }
 ]

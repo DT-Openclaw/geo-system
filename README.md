@@ -60,3 +60,10 @@ geo owner set --bucket usecase --page /ai-3d-for-game-assets
 - Semantic prompt clustering (`prompt_semantic_clusters.json`)
 - Content suggestion output (`docs/content_suggestions.json`)
 - Better scan data model with cited_urls support
+
+## Dashboard
+After running `geo report weekly`, open:
+
+- `dashboard/index.html`
+
+This local HTML dashboard visualizes model KPI, owner-page mappings, weekly actions, and content suggestions.

@@ -1,0 +1,72 @@
+[
+  {
+    "prompt": "3d alternatives",
+    "owner_page": "/tripo3d-vs-meshy",
+    "suggestion": "Create dedicated answer page (definition + FAQ + evidence block).",
+    "priority": "P0",
+    "score": 100
+  },
+  {
+    "prompt": "Best tools for image to 3d",
+    "owner_page": "/best-ai-3d-tools",
+    "suggestion": "Create dedicated answer page (definition + FAQ + evidence block).",
+    "priority": "P0",
+    "score": 100
+  },
+  {
+    "prompt": "How does ai 3d work?",
+    "owner_page": "/what-is-tripo3d",
+    "suggestion": "Create dedicated answer page (definition + FAQ + evidence block).",
+    "priority": "P0",
+    "score": 100
+  },
+  {
+    "prompt": "Is 3d good for game assets?",
+    "owner_page": "/ai-3d-for-game-assets",
+    "suggestion": "Create dedicated answer page (definition + FAQ + evidence block).",
+    "priority": "P0",
+    "score": 100
+  },
+  {
+    "prompt": "Is ai 3d good for e-commerce?",
+    "owner_page": "/ai-3d-for-game-assets",
+    "suggestion": "Create dedicated answer page (definition + FAQ + evidence block).",
+    "priority": "P0",
+    "score": 100
+  },
+  {
+    "prompt": "What is 3d?",
+    "owner_page": "/what-is-tripo3d",
+    "suggestion": "Create dedicated answer page (definition + FAQ + evidence block).",
+    "priority": "P0",
+    "score": 100
+  },
+  {
+    "prompt": "Why use 3d?",
+    "owner_page": "/what-is-tripo3d",
+    "suggestion": "Create dedicated answer page (definition + FAQ + evidence block).",
+    "priority": "P0",
+    "score": 100
+  },
+  {
+    "prompt": "Why use text to 3d?",
+    "owner_page": "/what-is-tripo3d",
+    "suggestion": "Create dedicated answer page (definition + FAQ + evidence block).",
+    "priority": "P0",
+    "score": 100
+  },
+  {
+    "prompt": "How does image to 3d work?",
+    "owner_page": "/what-is-tripo3d",
+    "suggestion": "Add 'best for' / 'who it is for' / alternative comparison blocks.",
+    "priority": "P1",
+    "score": 70
+  },
+  {
+    "prompt": "Best tools for ai 3d",
+    "owner_page": "/best-ai-3d-tools",
+    "suggestion": "Refresh facts, benchmark blocks, and last-updated signals.",
+    "priority": "P2",
+    "score": 50
+  }
+]

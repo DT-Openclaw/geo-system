@@ -1,17 +1,38 @@
 GEO Weekly Report
-==================================================
+============================================================
 
 Model: openai:live
-- Total prompts: 20
-- Mention rate: 10.0%
-- Citation rate: 5.0%
-- Recommendation rate: 10.0%
+- Total prompts: 80
+- Mention rate: 15.0%
+- Citation rate: 13.8%
+- Recommendation rate: 15.0%
 
   By bucket:
-  - comparison: mention 50.0% | citation 25.0% | recommendation 50.0%
-  - decision: mention 0.0% | citation 0.0% | recommendation 0.0%
-  - info: mention 0.0% | citation 0.0% | recommendation 0.0%
-  - usecase: mention 0.0% | citation 0.0% | recommendation 0.0%
+  - comparison: mention 75.0% | citation 75.0% | recommendation 75.0%
+  - decision: mention 75.0% | citation 75.0% | recommendation 75.0%
+  - info: mention 37.5% | citation 37.5% | recommendation 37.5%
+  - unknown: mention 3.3% | citation 1.7% | recommendation 3.3%
+  - usecase: mention 25.0% | citation 25.0% | recommendation 25.0%
+
+  Trend vs previous run:
+  - Mention: 0.0% -> 50.0% (delta +50.0pp)
+  - Citation: 0.0% -> 50.0% (delta +50.0pp)
+  - Recommendation: 0.0% -> 50.0% (delta +50.0pp)
+
+  Bucket trend (mention):
+  - unknown: 0.0% -> 0.0% (delta +0.0pp)
+
+  Top cited URLs:
+  - https://www.meshy.ai/ (9)
+  - https://www.tripo3d.ai/ (9)
+  - https://lumalabs.ai/ (7)
+  - https://www.kaedim3d.com/ (5)
+  - https://poly.cam/ (5)
+  - https://github.com/openai/shap-e (4)
+  - https://www.blender.org/ (4)
+  - https://www.sloyd.ai/ (3)
+  - https://www.scenario.com/ (3)
+  - https://www.masterpiecex.com/ (3)
 
 Model: claude
 - Total prompts: 20
@@ -20,7 +41,28 @@ Model: claude
 - Recommendation rate: 15.0%
 
   By bucket:
-  - comparison: mention 75.0% | citation 0.0% | recommendation 0.0%
-  - decision: mention 50.0% | citation 0.0% | recommendation 25.0%
-  - info: mention 12.5% | citation 12.5% | recommendation 12.5%
-  - usecase: mention 25.0% | citation 25.0% | recommendation 25.0%
+  - unknown: mention 35.0% | citation 10.0% | recommendation 15.0%
+
+Model: gemini:live
+- Total prompts: 60
+- Mention rate: 40.0%
+- Citation rate: 25.0%
+- Recommendation rate: 15.0%
+
+  By bucket:
+  - comparison: mention 50.0% | citation 25.0% | recommendation 50.0%
+  - decision: mention 50.0% | citation 25.0% | recommendation 0.0%
+  - info: mention 25.0% | citation 25.0% | recommendation 0.0%
+  - unknown: mention 40.0% | citation 25.0% | recommendation 15.0%
+  - usecase: mention 50.0% | citation 25.0% | recommendation 25.0%
+
+  Trend vs previous run:
+  - Mention: 40.0% -> 40.0% (delta +0.0pp)
+  - Citation: 25.0% -> 25.0% (delta +0.0pp)
+  - Recommendation: 15.0% -> 15.0% (delta +0.0pp)
+
+  Bucket trend (mention):
+  - unknown: 40.0% -> 40.0% (delta +0.0pp)
+
+  Top cited URLs:
+  - https://tripo3d.ai (5)

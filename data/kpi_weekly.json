@@ -1,30 +1,82 @@
 {
   "models": {
     "openai:live": {
-      "total": 20,
-      "mention_rate": 0.1,
-      "citation_rate": 0.05,
-      "recommendation_rate": 0.1
+      "total": 80,
+      "mention_rate": 0.15,
+      "citation_rate": 0.1375,
+      "recommendation_rate": 0.15
     },
     "claude": {
       "total": 20,
       "mention_rate": 0.35,
       "citation_rate": 0.1,
       "recommendation_rate": 0.15
+    },
+    "gemini:live": {
+      "total": 60,
+      "mention_rate": 0.4,
+      "citation_rate": 0.25,
+      "recommendation_rate": 0.15
     }
   },
   "by_bucket": {
     "openai:live": {
+      "unknown": {
+        "total": 60,
+        "mention_rate": 0.0333,
+        "citation_rate": 0.0167,
+        "recommendation_rate": 0.0333
+      },
       "info": {
         "total": 8,
-        "mention_rate": 0.0,
-        "citation_rate": 0.0,
+        "mention_rate": 0.375,
+        "citation_rate": 0.375,
+        "recommendation_rate": 0.375
+      },
+      "decision": {
+        "total": 4,
+        "mention_rate": 0.75,
+        "citation_rate": 0.75,
+        "recommendation_rate": 0.75
+      },
+      "comparison": {
+        "total": 4,
+        "mention_rate": 0.75,
+        "citation_rate": 0.75,
+        "recommendation_rate": 0.75
+      },
+      "usecase": {
+        "total": 4,
+        "mention_rate": 0.25,
+        "citation_rate": 0.25,
+        "recommendation_rate": 0.25
+      }
+    },
+    "claude": {
+      "unknown": {
+        "total": 20,
+        "mention_rate": 0.35,
+        "citation_rate": 0.1,
+        "recommendation_rate": 0.15
+      }
+    },
+    "gemini:live": {
+      "unknown": {
+        "total": 40,
+        "mention_rate": 0.4,
+        "citation_rate": 0.25,
+        "recommendation_rate": 0.15
+      },
+      "info": {
+        "total": 8,
+        "mention_rate": 0.25,
+        "citation_rate": 0.25,
         "recommendation_rate": 0.0
       },
       "decision": {
         "total": 4,
-        "mention_rate": 0.0,
-        "citation_rate": 0.0,
+        "mention_rate": 0.5,
+        "citation_rate": 0.25,
         "recommendation_rate": 0.0
       },
       "comparison": {
@@ -35,36 +87,109 @@
       },
       "usecase": {
         "total": 4,
-        "mention_rate": 0.0,
-        "citation_rate": 0.0,
-        "recommendation_rate": 0.0
-      }
-    },
-    "claude": {
-      "info": {
-        "total": 8,
-        "mention_rate": 0.125,
-        "citation_rate": 0.125,
-        "recommendation_rate": 0.125
-      },
-      "decision": {
-        "total": 4,
         "mention_rate": 0.5,
-        "citation_rate": 0.0,
-        "recommendation_rate": 0.25
-      },
-      "comparison": {
-        "total": 4,
-        "mention_rate": 0.75,
-        "citation_rate": 0.0,
-        "recommendation_rate": 0.0
-      },
-      "usecase": {
-        "total": 4,
-        "mention_rate": 0.25,
         "citation_rate": 0.25,
         "recommendation_rate": 0.25
       }
     }
+  },
+  "trends": {
+    "openai:live": {
+      "prev_run_id": "run_20260303T160000Z",
+      "cur_run_id": "run_20260303T162508Z",
+      "mention_rate_prev": 0.0,
+      "mention_rate_cur": 0.5,
+      "mention_delta": 0.5,
+      "citation_rate_prev": 0.0,
+      "citation_rate_cur": 0.5,
+      "citation_delta": 0.5,
+      "recommendation_rate_prev": 0.0,
+      "recommendation_rate_cur": 0.5,
+      "recommendation_delta": 0.5
+    },
+    "gemini:live": {
+      "prev_run_id": "run_20260303T160000Z",
+      "cur_run_id": "run_20260303T162508Z",
+      "mention_rate_prev": 0.4,
+      "mention_rate_cur": 0.4,
+      "mention_delta": 0.0,
+      "citation_rate_prev": 0.25,
+      "citation_rate_cur": 0.25,
+      "citation_delta": 0.0,
+      "recommendation_rate_prev": 0.15,
+      "recommendation_rate_cur": 0.15,
+      "recommendation_delta": 0.0
+    }
+  },
+  "bucket_trends": {
+    "openai:live": {
+      "unknown": {
+        "prev_run_id": "run_20260303T155039Z",
+        "cur_run_id": "run_20260303T160000Z",
+        "mention_prev": 0.0,
+        "mention_cur": 0.0,
+        "mention_delta": 0.0
+      }
+    },
+    "claude": {},
+    "gemini:live": {
+      "unknown": {
+        "prev_run_id": "run_20260303T155039Z",
+        "cur_run_id": "run_20260303T160000Z",
+        "mention_prev": 0.4,
+        "mention_cur": 0.4,
+        "mention_delta": 0.0
+      }
+    }
+  },
+  "top_citations": {
+    "openai:live": [
+      [
+        "https://www.meshy.ai/",
+        9
+      ],
+      [
+        "https://www.tripo3d.ai/",
+        9
+      ],
+      [
+        "https://lumalabs.ai/",
+        7
+      ],
+      [
+        "https://www.kaedim3d.com/",
+        5
+      ],
+      [
+        "https://poly.cam/",
+        5
+      ],
+      [
+        "https://github.com/openai/shap-e",
+        4
+      ],
+      [
+        "https://www.blender.org/",
+        4
+      ],
+      [
+        "https://www.sloyd.ai/",
+        3
+      ],
+      [
+        "https://www.scenario.com/",
+        3
+      ],
+      [
+        "https://www.masterpiecex.com/",
+        3
+      ]
+    ],
+    "gemini:live": [
+      [
+        "https://tripo3d.ai",
+        5
+      ]
+    ]
   }
 }
