@@ -26,10 +26,18 @@ pip install -e .
 
 geo init --project tripo3d --domain tripo3d.ai --brand tripo3d
 geo prompts generate --seed "3d,ai 3d,text to 3d,image to 3d" --count 100
-geo adapter set --base-url https://lonr.zeabur.app/v1 --api-key YOUR_KEY --model gpt-5.3-codex
-geo scan run --models openai:live,claude,gemini
+geo adapter set --provider openai --base-url https://lonr.zeabur.app/v1 --api-key YOUR_KEY --model gpt-5.3-codex
+geo adapter set --provider claude --base-url https://api.anthropic.com/v1 --api-key YOUR_KEY --model claude-sonnet-4-6
+geo adapter set --provider gemini --base-url https://lonr.zeabur.app/v1 --api-key YOUR_KEY --model gemini-3.1-pro-preview
+geo scan run --models openai:live,claude:live,gemini:live --append
 geo report weekly
 ```
 
 ## Notes
 This MVP stores data locally in JSON files for simplicity.
+
+## v0.3 highlights
+- Multi-provider adapter config (openai/claude/gemini)
+- Run-level trend comparison (current run vs previous run)
+- Action scoring in weekly actions
+- Append mode for scan history

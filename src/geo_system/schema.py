@@ -1,6 +1,7 @@
 from dataclasses import dataclass, asdict
 from typing import List
 
+
 @dataclass
 class Prompt:
     id: str
@@ -13,6 +14,7 @@ class Prompt:
 
     def to_dict(self):
         return asdict(self)
+
 
 @dataclass
 class ScanResult:
@@ -27,6 +29,7 @@ class ScanResult:
     competitors: List[str]
     excerpt: str
     ts: str
+    run_id: str = ""
 
     def to_dict(self):
         return asdict(self)

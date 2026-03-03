@@ -55,13 +55,16 @@ def cmd_prompts_generate(args):
 def cmd_adapter_set(args):
     base = Path(args.cwd).resolve()
     paths = _project_paths(base)
-    payload = {
+    existing = read_json(paths["adapter"], {})
+
+    payload = existing
+    payload[args.provider] = {
         "base_url": args.base_url,
         "api_key": args.api_key,
         "model": args.model,
     }
     write_json(paths["adapter"], payload)
-    print(f"Adapter config saved -> {paths['adapter']}")
+    print(f"Adapter config saved for provider={args.provider} -> {paths['adapter']}")
 
 
 def cmd_scan_run(args):
@@ -75,9 +78,17 @@ def cmd_scan_run(args):
     brand_terms = project.get("brand_terms", [project.get("brand", ""), project.get("domain", "")])
 
     adapter = read_json(paths["adapter"], {})
-    scans = [s.to_dict() for s in run_scan(models, prompts, brand_terms=brand_terms, adapter_config=adapter)]
+    new_scans = [s.to_dict() for s in run_scan(models, prompts, brand_terms=brand_terms, adapter_config=adapter)]
+
+    if args.append:
+        existing = read_json(paths["scans"], [])
+        scans = existing + new_scans
+    else:
+        scans = new_scans
+
     write_json(paths["scans"], scans)
     print(f"Scanned {len(prompts)} prompts x {len(models)} models -> {paths['scans']}")
+    print(f"Append mode: {args.append}")
 
 
 def cmd_report_weekly(args):
@@ -122,6 +133,7 @@ def main():
     p_adapter = sub.add_parser("adapter")
     sub_adapter = p_adapter.add_subparsers(dest="adapter_cmd", required=True)
     p_adapter_set = sub_adapter.add_parser("set")
+    p_adapter_set.add_argument("--provider", required=True, choices=["openai", "claude", "gemini"])
     p_adapter_set.add_argument("--base-url", required=True)
     p_adapter_set.add_argument("--api-key", required=True)
     p_adapter_set.add_argument("--model", required=True)
@@ -131,6 +143,7 @@ def main():
     sub_scan = p_scan.add_subparsers(dest="scan_cmd", required=True)
     p_run = sub_scan.add_parser("run")
     p_run.add_argument("--models", default="gpt,claude,gemini")
+    p_run.add_argument("--append", action="store_true")
     p_run.set_defaults(func=cmd_scan_run)
 
     p_report = sub.add_parser("report")

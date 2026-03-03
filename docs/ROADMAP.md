@@ -13,6 +13,12 @@
 - Adapter config persistence via CLI
 
 ## v0.3
-- Claude / Gemini provider adapters
-- Trend comparison across scan runs
-- Better action scoring and backlog generation
+- Multi-provider adapter config (openai / claude / gemini)
+- Run-level trend comparison (previous run vs latest run)
+- Action scoring and prioritized weekly actions
+- Append mode for scan history retention
+
+## v0.4 (next)
+- Better provider-specific response parsing
+- Prompt cluster-level trend tracking
+- Page mapping and owner-page recommendations
