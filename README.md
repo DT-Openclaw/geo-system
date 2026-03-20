@@ -61,6 +61,45 @@ geo owner set --bucket usecase --page /ai-3d-for-game-assets
 - Content suggestion output (`docs/content_suggestions.json`)
 - Better scan data model with cited_urls support
 
+## 🌐 Web Interface (NEW!)
+
+Launch a web interface to easily run GEO scans without CLI:
+
+```bash
+# Install Flask
+pip install flask
+
+# Start web server
+python -m geo_system.web_app
+```
+
+Then open http://localhost:5000 in your browser.
+
+### Web Features
+
+1. **Single Scan** - Enter company/product info:
+   - Brand name
+   - Domain
+   - Product description
+   - Keywords
+   - Select AI models to test
+
+2. **Batch Scan** - Upload JSON config to test multiple companies:
+```json
+{
+  "projects": [
+    {"brand": "Tripo3D", "domain": "tripo3d.ai", "keywords": "AI 3D,text to 3D"},
+    {"brand": "Meshy", "domain": "meshy.ai", "keywords": "AI 3D,model generation"}
+  ],
+  "models": "openai:live,claude:live"
+}
+```
+
+3. **Results Display**:
+   - Mention rate, citation rate, recommendation rate
+   - Per-model performance breakdown
+   - Detailed scan results table
+
 ## Dashboard
 After running `geo report weekly`, open:
 

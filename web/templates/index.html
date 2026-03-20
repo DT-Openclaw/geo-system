@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEO 检测工具</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">🚀 GEO 检测工具</h1>
+            <p class="mt-2 opacity-90">上传公司/产品信息，检测在 AI 模型中的可见性</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- 上传表单 -->
+        <div class="card p-6 mb-8">
+            <h2 class="text-xl font-semibold mb-4">📝 填写 GEO 信息</h2>
+            <form id="scanForm" class="space-y-4">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">公司/品牌名称 *</label>
+                        <input type="text" id="brand" name="brand" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                            placeholder="如: Tripo3D">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">域名 *</label>
+                        <input type="text" id="domain" name="domain" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                            placeholder="如: tripo3d.ai">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">产品描述</label>
+                    <textarea id="description" name="description" rows="3"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        placeholder="简单描述你的产品或服务..."></textarea>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">关键词 (用逗号分隔)</label>
+                    <input type="text" id="seedKeywords" name="seedKeywords"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        placeholder="如: AI 3D, text to 3D, image to 3D">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">检测模型</label>
+                    <select id="models" name="models" multiple
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                        <option value="openai:live" selected>OpenAI (GPT-4)</option>
+                        <option value="claude:live" selected>Anthropic (Claude)</option>
+                        <option value="gemini:live" selected>Google (Gemini)</option>
+                    </select>
+                    <p class="text-xs text-gray-500 mt-1">按住 Ctrl/Cmd 可多选</p>
+                </div>
+                
+                <button type="submit" id="submitBtn"
+                    class="w-full gradient-bg text-white py-3 px-6 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                    🚀 开始检测
+                </button>
+            </form>
+        </div>
+
+        <!-- 批量上传 -->
+        <div class="card p-6 mb-8">
+            <h2 class="text-xl font-semibold mb-4">📂 批量检测 (JSON配置文件)</h2>
+            <form id="uploadForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">选择配置文件</label>
+                    <input type="file" id="configFile" name="file" accept=".json"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
+                </div>
+                <button type="submit"
+                    class="bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                    📤 批量检测
+                </button>
+            </form>
+            <div class="mt-4 p-4 bg-gray-100 rounded-lg">
+                <p class="text-sm font-medium">配置文件格式:</p>
+                <pre class="text-xs mt-2 overflow-x-auto">{
+  "projects": [
+    {"brand": "Tripo3D", "domain": "tripo3d.ai", "keywords": "AI 3D,text to 3D"},
+    {"brand": "Meshy", "domain": "meshy.ai", "keywords": "AI 3D,model generation"}
+  ],
+  "models": "openai:live,claude:live"
+}</pre>
+            </div>
+        </div>
+
+        <!-- 加载指示器 -->
+        <div id="loading" class="hidden text-center py-12">
+            <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-purple-500 border-t-transparent"></div>
+            <p class="mt-4 text-gray-600">正在检测中，请稍候...</p>
+        </div>
+
+        <!-- 结果展示 -->
+        <div id="results" class="hidden">
+            <div class="card p-6 mb-6">
+                <h2 class="text-xl font-semibold mb-4">📊 检测结果</h2>
+                <div class="grid md:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-blue-50 p-4 rounded-lg text-center">
+                        <div class="text-3xl font-bold text-blue-600" id="totalScans">-</div>
+                        <div class="text-sm text-gray-600">总扫描数</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg text-center">
+                        <div class="text-3xl font-bold text-green-600" id="mentionRate">-</div>
+                        <div class="text-sm text-gray-600">提及率 %</div>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded-lg text-center">
+                        <div class="text-3xl font-bold text-yellow-600" id="citationRate">-</div>
+                        <div class="text-sm text-gray-600">引用率 %</div>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg text-center">
+                        <div class="text-3xl font-bold text-purple-600" id="recommendRate">-</div>
+                        <div class="text-sm text-gray-600">推荐率 %</div>
+                    </div>
+                </div>
+                
+                <!-- 按模型结果 -->
+                <h3 class="font-medium mb-3">📈 各模型表现</h3>
+                <div id="modelResults" class="grid md:grid-cols-3 gap-4"></div>
+            </div>
+            
+            <!-- 详细结果 -->
+            <div class="card p-6">
+                <h3 class="text-lg font-semibold mb-4">🔍 详细扫描结果</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-4 py-2 text-left">提示词</th>
+                                <th class="px-4 py-2">模型</th>
+                                <th class="px-4 py-2">提及</th>
+                                <th class="px-4 py-2">引用</th>
+                                <th class="px-4 py-2">推荐</th>
+                            </tr>
+                        </thead>
+                        <tbody id="detailedResults"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 错误提示 -->
+        <div id="error" class="hidden bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg"></div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>GEO System v1.0 - Powered by OpenClaw</p>
+        </div>
+    </footer>
+
+    <script>
+        // 单项目检测
+        document.getElementById('scanForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const brand = document.getElementById('brand').value;
+            const domain = document.getElementById('domain').value;
+            const description = document.getElementById('description').value;
+            const seedKeywords = document.getElementById('seedKeywords').value;
+            const models = Array.from(document.getElementById('models').selectedOptions).map(o => o.value).join(',');
+            
+            showLoading();
+            
+            try {
+                const res = await fetch('/api/scan', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({brand, domain, description, seed_keywords: seedKeywords, models})
+                });
+                
+                const data = await res.json();
+                if (data.error) {
+                    showError(data.error);
+                } else {
+                    showResults(data);
+                }
+            } catch (err) {
+                showError('请求失败: ' + err.message);
+            }
+        });
+        
+        // 批量检测
+        document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData();
+            formData.append('file', document.getElementById('configFile').files[0]);
+            
+            showLoading();
+            
+            try {
+                const res = await fetch('/api/upload-config', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await res.json();
+                if (data.error) {
+                    showError(data.error);
+                } else {
+                    alert('批量检测完成！共检测 ' + data.results.length + ' 个项目');
+                    hideLoading();
+                }
+            } catch (err) {
+                showError('请求失败: ' + err.message);
+            }
+        });
+        
+        function showLoading() {
+            document.getElementById('loading').classList.remove('hidden');
+            document.getElementById('results').classList.add('hidden');
+            document.getElementById('error').classList.add('hidden');
+            document.getElementById('submitBtn').disabled = true;
+        }
+        
+        function hideLoading() {
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('submitBtn').disabled = false;
+        }
+        
+        function showError(msg) {
+            hideLoading();
+            document.getElementById('error').textContent = msg;
+            document.getElementById('error').classList.remove('hidden');
+        }
+        
+        function showResults(data) {
+            hideLoading();
+            document.getElementById('results').classList.remove('hidden');
+            
+            const summary = data.summary;
+            document.getElementById('totalScans').textContent = summary.total_scans;
+            document.getElementById('mentionRate').textContent = summary.mention_rate + '%';
+            document.getElementById('citationRate').textContent = summary.citation_rate + '%';
+            document.getElementById('recommendRate').textContent = summary.recommendation_rate + '%';
+            
+            // 按模型展示
+            const modelResults = document.getElementById('modelResults');
+            modelResults.innerHTML = '';
+            for (const [model, stats] of Object.entries(summary.by_model)) {
+                modelResults.innerHTML += `
+                    <div class="border p-4 rounded-lg">
+                        <div class="font-medium">${model}</div>
+                        <div class="grid grid-cols-3 gap-2 mt-2 text-sm">
+                            <div><span class="text-green-600">${stats.mentions}</span> 提及</div>
+                            <div><span class="text-yellow-600">${stats.citations}</span> 引用</div>
+                            <div><span class="text-purple-600">${stats.recommendations}</span> 推荐</div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // 详细结果
+            const detailedResults = document.getElementById('detailedResults');
+            detailedResults.innerHTML = '';
+            data.detailed_results.slice(0, 50).forEach(r => {
+                detailedResults.innerHTML += `
+                    <tr class="border-t">
+                        <td class="px-4 py-2 truncate max-w-xs">${r.prompt}</td>
+                        <td class="px-4 py-2 text-center">${r.model}</td>
+                        <td class="px-4 py-2 text-center">${r.mention_level !== 'none' ? '✅' : '❌'}</td>
+                        <td class="px-4 py-2 text-center">${r.cited_urls ? '✅' : '❌'}</td>
+                        <td class="px-4 py-2 text-center">${r.recommendation === 'recommended' ? '⭐' : '-'}</td>
+                    </tr>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>
