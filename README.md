@@ -67,3 +67,5 @@ After running `geo report weekly`, open:
 - `dashboard/index.html`
 
 This local HTML dashboard visualizes model KPI, owner-page mappings, weekly actions, and content suggestions.
+
+happy birthday
